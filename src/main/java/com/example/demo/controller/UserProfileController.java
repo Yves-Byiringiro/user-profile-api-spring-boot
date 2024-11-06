@@ -53,4 +53,10 @@ public class UserProfileController {
         ApiResponse<Void> response = userProfileService.changePassword(userProfileId, changePasswordRequest);
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping(path = "search-profile/{keywordToSearch}")
+    public ResponseEntity<List<UserProfileResponseDTO>> getProfileBySearch(@PathVariable("keywordToSearch") String keywordToSearch) {
+        List<UserProfileResponseDTO> response = userProfileService.search(keywordToSearch);
+        return ResponseEntity.ok(response);
+    }
 }

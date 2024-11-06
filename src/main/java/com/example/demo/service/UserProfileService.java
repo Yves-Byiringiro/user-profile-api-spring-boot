@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -169,5 +170,23 @@ public class UserProfileService {
                 HttpStatus.OK
         );
     }
+
+    public List<UserProfileResponseDTO> search(String keywordToSearch) {
+        List<UserProfile> profiles = userProfileRepository.searchByKeyword(keywordToSearch);
+
+        return profiles.stream().map(profile -> {
+            UserProfileResponseDTO dto = new UserProfileResponseDTO();
+            dto.setId(profile.getId());
+            dto.setName(profile.getName());
+            dto.setUsername(profile.getUsername());
+            dto.setEmail(profile.getEmail());
+            dto.setDob(profile.getDob());
+            dto.setAge(profile.getAge());
+            dto.setStatus(profile.getStatus());
+            return dto;
+        }).collect(Collectors.toList());
+    }
+
+
 }
 
