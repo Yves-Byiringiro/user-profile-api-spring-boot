@@ -4,6 +4,7 @@ import com.example.demo.config.JwtService;
 import com.example.demo.exception.*;
 import com.example.demo.model.UserProfile;
 import com.example.demo.payload.ApiResponse;
+import com.example.demo.payload.UserProfileResponseDTO;
 import com.example.demo.security.dtos.*;
 import com.example.demo.repository.UserProfileRepository;
 import com.example.demo.security.enums.UserProfileStatus;
@@ -186,7 +187,5 @@ public class UserProfileService {
             return dto;
         }).collect(Collectors.toList());
     }
-
-
 }
 

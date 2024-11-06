@@ -1,18 +1,25 @@
+version: "3.8"
+
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    container_name: demo
+    image: demo
+    build: ./
     ports:
       - "8080:8080"
     depends_on:
-      - db
-
-  db:
-    image: postgres:13
+      - postgresql
     environment:
-      POSTGRES_USER: ybyiring
-      POSTGRES_PASSWORD: Ngfin2024!
-      POSTGRES_DB: profiles
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/profiles
+      - SPRING_DATASOURCE_USERNAME=ybyiring
+      - SPRING_DATASOURCE_PASSWORD=Ngfin2024!
+  postgresql:
+    image: postgres
     ports:
       - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=Ngfin2024!
+      - POSTGRES_USER=ybyiring
+      - POSTGRES_DB=profiles
+
+

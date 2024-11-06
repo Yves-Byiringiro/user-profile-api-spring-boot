@@ -26,18 +26,12 @@ public class UserProfile implements UserDetails {
     @GeneratedValue
     private long id;
 
-    @NotBlank(message = "Username is needed")
     @Column(unique = true)
     private String username;
 
-    @NotBlank(message = "Name is needed")
     private String name;
-
-    @NotBlank(message = "Email address is needed")
-    @Email(message = "Invalid email address")
     private String email;
 
-    @NotNull(message = "Date of birth is needed")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
 
@@ -46,11 +40,6 @@ public class UserProfile implements UserDetails {
 
     @Transient
     private Integer age;
-
-    @NotBlank(message = "Password is needed")
-    @Size(min = 6, message = "Password must be at least 6 characters long")
-    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
-            message = "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character")
     private String password;
 
 

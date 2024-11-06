@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.payload.ApiResponse;
+import com.example.demo.payload.UserProfileResponseDTO;
 import com.example.demo.security.dtos.*;
 import com.example.demo.service.UserProfileService;
 import jakarta.validation.Valid;

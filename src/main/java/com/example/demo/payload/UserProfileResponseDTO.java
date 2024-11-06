@@ -1,4 +1,4 @@
-package com.example.demo.security.dtos;
+package com.example.demo.payload;
 
 import com.example.demo.security.enums.UserProfileStatus;
 import lombok.*;

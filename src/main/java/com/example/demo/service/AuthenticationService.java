@@ -57,7 +57,7 @@ public class AuthenticationService {
         }
     }
 
-    public AuthenticationResponse register(@Valid RegisterDTO request) {
+    public AuthenticationResponse register(RegisterDTO request) {
 
         Optional<UserProfile> userProfileUsernameOptional = repository
                 .findUserProfileByUsername(request.getUsername());
